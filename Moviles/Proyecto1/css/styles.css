@@ -39,6 +39,51 @@ body {
   padding: 0 20px; border-radius: var(--radius); font-weight: 600; cursor: pointer;
 }
 
+.log-in {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.log-in-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-in-fields input {
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+.log-in-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.log-in-actions button {
+  flex: 1;
+  min-width: 100px;
+  background: var(--color-ink);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#status {
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+
 .task-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .task-item {
   display: flex; align-items: center; gap: 12px;

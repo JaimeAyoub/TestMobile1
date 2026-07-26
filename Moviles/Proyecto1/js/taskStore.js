@@ -4,6 +4,7 @@
 // Los datos se almacenan en forma de pares clave-valor y persisten incluso después de cerrar el navegador.
 
 const STORAGE_KEY = "app-task"
+let currentRef = null;
 
 export function getTasks() {
 
@@ -16,30 +17,27 @@ function saveTasks(tasks) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
 
-export function addTask(text) {
-    const tasks = getTasks();
+export function subscribeToTasks(userID, callback) {
+if (currentRef) currentRef.off(); 
 
-    const newTask = {
-        id: Date.now().toString(),
-        text,
-        completed: false
-    };
+currentRef = db.ref("tasks/" + userID);
 
-    tasks.push(newTask);
-    saveTasks(tasks);
-    return tasks;
+currentRef.on("value", (snapshot) => {
+   const data = snapshot.val()  || {};
+   const tasks = Object.entries(data).map(([id, task]) => ({ id, ...task }));
+   callback(tasks);
+  });
+
 }
-export function toggleTask(id) {
-    const tasks = getTasks().map(task =>
-    task.id === id ? { ...task, completed: !task.completed } : task
-  );
-  saveTasks(tasks);
-  return tasks;
-}
+export function addTask(text, userID) {
 
-export function deleteTask(id) {
-    const tasks = getTasks().filter(task => task.id !== id);
-    saveTasks(tasks);
-    return tasks;
+    return db.ref("tasks/" + userID).push({ 
+        text, completed: false });
+}
+export function toggleTask(userID,id,currentCompleted) {
+  return db.ref("tasks/" + userID + "/" + id).update({ completed: !currentCompleted });
 }
 
+export function deleteTask(userId, id) {
+  return db.ref(`tasks/${userId}/${id}`).remove();
+}
