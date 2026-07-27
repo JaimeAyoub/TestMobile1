@@ -15,17 +15,23 @@ function refresh(tasks) {
   renderTasks(tasks, {
     onToggle: (task) => toggleTask(currentUserId, task.id, task.completed),
     onDelete: (id) => deleteTask(currentUserId, id)
+
   });
+
 }
  
 auth.onAuthStateChanged((user) => {
   if (user) {
     currentUserId = user.uid;
     subscribeToTasks(user.uid, refresh);
+    showStatus(`Logged in as: ${user.email}`);
   } else {
     currentUserId = null;
+      showStatus(`Not logged in.`);
     refresh([]);
   }
+
+  console.log(typeof showStatus);
 });
 
 form.addEventListener("submit", (event) => {
