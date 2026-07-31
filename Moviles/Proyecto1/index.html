@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Campus Tasks</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -13,6 +15,7 @@
 
   <div class="app">
     <header class="app-header">
+      <button id="installBtn" class="install-btn" hidden>Install App</button>
       <h1>Campus Tasks</h1>
       <p class="subtitle">A tiny modular task tracker</p>
     </header>
@@ -24,20 +27,24 @@
     </form>
 
     <!-- Cosas de LogIn  -->
-   <form id="LogIn" class="log-in">
-   <div class="log-in-fields">
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password (min 6 characters)">
-   </div>
+    <form id="LogIn" class="log-in">
+      <div class="log-in-fields">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password (min 6 characters)">
+      </div>
 
       <div class="log-in-actions">
-    <button id="btnSignUp" type="button">Sign Up</button>
-    <button id="btnLogIn" type="button">Log In</button>
-    <button id="btnLogOut" type="button">Log Out</button>
-  </div>
+        <button id="btnSignUp" type="button">Sign Up</button>
+        <button id="btnLogIn" type="button">Log In</button>
 
-  <div id="status">Not logged in.</div>
-</form>
+      </div>
+    <form id="LogOut" class="log-in"></form>
+      <div class="log-out-actions">
+        <button id="btnLogOut" type="button">Log Out</button>
+      </div>
+
+      <div id="status">Not logged in.</div>
+    </form>
     <!--------------->
     <ul id="taskList" class="task-list"></ul>
 
