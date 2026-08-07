@@ -1,4 +1,4 @@
-const CACHE_NAME = "campus-tasks-v2";
+const CACHE_NAME = "campus-tasks-v3";
 
 const APP_SHELL_FILES = [
   "./",
@@ -9,7 +9,7 @@ const APP_SHELL_FILES = [
   "./js/app.js",
   "./js/taskStore.js",
   "./js/taskUI.js",
-  "./js/firebaseConfig.js",
+  "./js/firebaseconfig.js",
   "./js/login.js",
   "./js/onboarding.js",
   "./manifest.json",

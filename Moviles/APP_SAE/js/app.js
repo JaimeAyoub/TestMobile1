@@ -1,4 +1,4 @@
-import { auth, db } from "./firebaseConfig.js";
+import { auth, db } from "./firebaseconfig.js";
 import { addTask, listenToTasks, toggleTask, deleteTask } from "./taskStore.js";
 import { renderTasks, getFormInput } from "./taskUI.js";
 

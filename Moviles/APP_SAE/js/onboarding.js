@@ -1,4 +1,4 @@
-import { db, auth } from "./firebaseConfig.js";
+import { db, auth } from "./firebaseconfig.js";
 
 const nameInput = document.getElementById("nameInput");
 const saveBtn = document.getElementById("saveProfileBtn");

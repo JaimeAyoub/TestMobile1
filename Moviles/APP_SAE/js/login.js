@@ -1,4 +1,4 @@
-import { auth } from "./firebaseConfig.js";
+import { auth } from "./firebaseconfig.js";
 
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");

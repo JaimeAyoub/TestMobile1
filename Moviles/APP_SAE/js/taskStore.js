@@ -1,4 +1,4 @@
-import { db, auth } from "./firebaseConfig.js";
+import { db, auth } from "./firebaseconfig.js";
 
 function getUserTasksRef() {
   const uid = auth.currentUser.uid;
