@@ -39,6 +39,23 @@ function renderSkins(skinsData) {
   });
 }
 
+import { auth } from "./firebase-config.js";
+
+// Escuchar el estado de autenticación
+auth.onAuthStateChanged((user) => {
+  if (!user) {
+    // Si no hay usuario, lo regresamos a empujones a la entrada (login)
+    window.location.href = "login.html";
+  } else {
+    // Si hay usuario, procedemos a cargar los skins
+    console.log("Usuario autenticado:", user.email);
+    document.getElementById("status-text").textContent = `Bienvenido, ${user.email}`;
+    
+    // Aquí va el resto de tu código que carga los skins de Firebase...
+    // loadSkins(); 
+  }
+});
+
 // registra el service worker para que la app cargue rapido y funcione offline.
 // esto solo funciona sirviendo la pagina por http/https, no abriendo el
 // archivo index.html directo desde el explorador de archivos.
@@ -48,4 +65,21 @@ if ('serviceWorker' in navigator) {
       .then(() => console.log('Service worker registrado'))
       .catch((err) => console.error('Error registrando el service worker:', err));
   });
+
+
+  // Funcionalidad para el botón de Salir
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    auth.signOut()
+      .then(() => {
+        // Al cerrar sesión correctamente, lo mandamos a la puerta de entrada
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        console.error("Error al intentar salir:", error);
+      });
+  });
+}
 }

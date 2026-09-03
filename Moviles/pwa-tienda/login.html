@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrada - 皮膚屋 (Tienda de Skins)</title>
+  
+  <meta name="theme-color" content="#12161f">
+  
+  <!-- Tipografías de inspiración japonesa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+  <div class="auth-container">
+    <header class="shop-header">
+      <span class="kanji-subtitle">入店 (ENTRADA)</span>
+      <h1>IDENTIFICACIÓN</h1>
+      <div class="header-divider"></div>
+    </header>
+
+    <div class="auth-form">
+      <input type="email" id="emailInput" class="auth-input" placeholder="Correo electrónico" autocomplete="off">
+      <input type="password" id="passwordInput" class="auth-input" placeholder="Contraseña">
+
+      <div class="login-actions">
+        <button id="logInBtn" class="auth-btn primary">Iniciar sesión</button>
+        <button id="signUpBtn" class="auth-btn secondary">Crear cuenta</button>
+      </div>
+
+      <p id="statusMsg" class="status-msg"></p>
+    </div>
+  </div>
+
+  <!-- Firebase Compat (como lo tenías) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  
+  <!-- Tu script de login -->
+  <script type="module" src="login.js"></script>
+</body>
+</html>

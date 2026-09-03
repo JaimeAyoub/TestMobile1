@@ -229,3 +229,157 @@ h1 {
   .nav-btn.prev { left: -12px; }
   .nav-btn.next { right: -12px; }
 }
+
+/* =========================================
+   ESTILOS DE LOGIN (PUERTA DE ENTRADA)
+   ========================================= */
+.login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tarjeta principal de login */
+.auth-container {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--accent-red);
+  border-radius: 4px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Esquinas doradas */
+.auth-container::before,
+.auth-container::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--accent-gold);
+  pointer-events: none;
+}
+.auth-container::before { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+.auth-container::after { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Inputs estilo papel entintado */
+.auth-input {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--accent-gold);
+  color: var(--text-primary);
+  padding: 14px 15px;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.auth-input:focus {
+  border-color: var(--accent-red);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.auth-input::placeholder {
+  color: var(--text-muted);
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Botones estilo sellos de madera */
+.auth-btn {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 14px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.auth-btn.primary {
+  background: var(--accent-red);
+  color: #fff;
+  border: 1px dashed var(--accent-gold);
+}
+
+.auth-btn.primary:hover {
+  background: #a32b2b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 55, 55, 0.4);
+}
+
+.auth-btn.secondary {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+}
+
+.auth-btn.secondary:hover {
+  background: rgba(229, 184, 105, 0.1);
+  transform: translateY(-2px);
+}
+
+.status-msg {
+  color: var(--accent-red);
+  font-size: 13px;
+  text-align: center;
+  min-height: 20px;
+  margin: 0;
+}
+
+/* =========================================
+   BOTÓN DE SALIDA (LOGOUT)
+   ========================================= */
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.logout-btn:hover {
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+  background: rgba(200, 55, 55, 0.1);
+}
+
+/* Ajuste para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .logout-btn {
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
