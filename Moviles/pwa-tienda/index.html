@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Skins - 皮膚屋</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#12161f">
+
+  <!-- Tipografías de inspiración japonesa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="shop-header">
+    <span class="kanji-subtitle">スキン商店</span>
+    <h1>TIENDA DE SKINS</h1>
+    <div class="header-divider"></div>
+  </header>
+
+  <p id="status-text">Conectando con Firebase...</p>
+
+  <!-- Contenedor del vista individual / carrusel -->
+  <div class="carousel-wrapper">
+    <button class="nav-btn prev" id="prev-btn" aria-label="Anterior">❮</button>
+
+    <div id="skins-grid">
+      <!-- Aquí se renderizan dinámicamente las tarjetas desde app.js -->
+    </div>
+
+    <button class="nav-btn next" id="next-btn" aria-label="Siguiente">❯</button>
+  </div>
+
+  <div class="swipe-hint">◄ Desliza para ver más skins ►</div>
+
+  <script type="module" src="app.js"></script>
+
+  <!-- Script ligero para funcionamiento de los botones de navegación -->
+  <script>
+    const grid = document.getElementById('skins-grid');
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      grid.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+    document.getElementById('next-btn').addEventListener('click', () => {
+      grid.scrollBy({ left: 340, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
